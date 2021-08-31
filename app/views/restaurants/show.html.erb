@@ -5,5 +5,18 @@
     <h6 class="card-subtitle mb-2 text-muted"><%= @restaurant.food %></h6>
     <p class="card-text"><%= @restaurant.description %></p>
     <p class="card-text"><%= @restaurant.location %></p>
+    <p>
+      <%= link_to(edit_restaurant_path,
+      class: "btn btn-success text-decoration-none") do %>
+        <spam>Update <%= @restaurant.name %></spam>
+      <% end %>
+    </p>
+    <p>
+      <%= link_to restaurant_path(@restaurant), method: :delete,
+      class: 'btn btn-success text-decoration-none mt-2',
+      data: { confirm: "Do you really want to delete this restaurant?" } do %>
+        <spam>Delete <%= @restaurant.name %></spam>
+      <% end %>
+    </p>
   </div>
-  </div>
+</div>

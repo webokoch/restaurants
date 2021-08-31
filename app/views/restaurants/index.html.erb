@@ -1,12 +1,21 @@
 <h1>All Restaurants</h1>
 <%= link_to 'Add a new Restaurant', new_restaurant_path, class: 'btn btn-success mt-1 mb-2'  %>
-<% @restaurants.each do |restaurant| %>
-  <div class="card" style="width: 18rem; height: 26rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= restaurant.name %></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.food %></h6>
-    <p class="card-text"><%= restaurant.description %></p>
-    <p class="card-text"><%= restaurant.location %></p>
-  </div>
-  </div>
-<% end %>
+<div class="row">
+  <% @restaurants.each do |restaurant| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card m-2" style="width: 18rem; height: 26rem;">
+        <div class="card-body">
+          <h5>
+            <%= link_to(restaurant_path(restaurant),
+            class: "text-decoration-none text-dark") do %>
+              <spam> <%= restaurant.name %></spam>
+            <% end %>
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.food %></h6>
+          <p class="card-text"><%= restaurant.description %></p>
+          <p class="card-text"><%= restaurant.location %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

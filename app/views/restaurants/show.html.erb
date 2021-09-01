@@ -22,8 +22,24 @@
     </div>
   </div>
   <div class="m-3">
-    <h2>Reviews</h2>
+    <h2> <% if @restaurant.reviews.count > 0 %>
+      <%= pluralize(@restaurant.reviews.count, "Review") %>
+      <% else %>
+      <%= "No Reviews" %>
+      <% end %>
+    </h2>
     <%= link_to 'Add a new review', new_restaurant_review_path(@restaurant),
-    class: 'btn btn-primary'  %>
+    class: 'btn btn-primary mb-3'  %>
+    <p>
+      <% @restaurant.reviews.each do |review| %>
+        <% review.rating.to_i.times do %>
+          ⭐️
+        <% end %>
+        <p>
+          <%= review.content %>
+        </p>
+        <hr>
+      <% end %>
+    </p>
   </div>
 </div>

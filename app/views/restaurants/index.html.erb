@@ -1,5 +1,6 @@
 <h1 class="ms-2">All Restaurants</h1>
-<%= link_to 'Add a new Restaurant', new_restaurant_path, class: 'btn btn-success mt-1 mb-2 ms-2'  %>
+<%= link_to 'Add a new Restaurant', new_restaurant_path,
+class: 'btn btn-success mt-1 mb-2 ms-2' %>
 <div class="row">
   <% @restaurants.each do |restaurant| %>
     <div class="col-12 col-md-6 col-lg-4">

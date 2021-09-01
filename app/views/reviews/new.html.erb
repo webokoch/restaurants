@@ -1,5 +1,6 @@
+<h3>Leave a Review for <%= @restaurant.name %> </h3>
 <%= simple_form_for [ @restaurant, @review ] do |f| %>
   <%= f.input :rating, collection: 1..5 %>
   <%= f.input :content %>
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit class: 'btn btn-primary mt-3' %>
 <% end %>
